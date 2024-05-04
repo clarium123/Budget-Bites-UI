@@ -1,0 +1,28 @@
+
+<mat-card class="meal-card mb-2 p-2" cdkDrag>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon color="warn">favorite</mat-icon>
+      </button>
+      <span>Favorite</span>
+    </div>
+    <button mat-icon-button 
+      aria-label="Example icon button with a vertical three dot icon"
+      [matMenuTriggerFor]="afterMenu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #afterMenu="matMenu">
+      <button mat-menu-item>View Detail</button>
+      <button mat-menu-item>Remove</button>
+    </mat-menu>
+  </div>
+  <mat-card-title-group>
+      <img mat-card-sm-image class="dish-image" src={{imageURL}} alt="img card" />
+    <mat-card-title class="px-2">{{mealName}}</mat-card-title>
+    
+    <mat-card-subtitle class="sbuHeading">Cal {{ calorie }}</mat-card-subtitle>
+  </mat-card-title-group>
+
+</mat-card>

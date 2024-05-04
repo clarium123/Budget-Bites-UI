@@ -1,0 +1,227 @@
+.content{
+  // overflow-x: auto;
+  // overflow-y: hidden;
+  // overflow: auto;
+  // height: 87vh;
+}
+
+.favorites {
+  overflow: auto;
+  height: 200px;
+}
+
+.budget-container{
+  // border: solid 10px white;
+  position: relative;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  // background-color: rgb(114, 114, 114);
+  background-color: #fff;
+  height: 50px;
+  width: 200px;
+  .budget{
+    position: absolute;
+    top: 13.5px;
+    left: 5px;
+    // color: white;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+  }
+  span{
+    position: absolute;
+    top: 15px;
+    left: 80px;
+    // color: white;
+  }
+  .budget::placeholder{
+    // color: white;
+  }
+  .budget:focus{
+    outline: none;
+  }
+}
+
+
+ 
+.card-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Spacing between items */
+  padding: 10px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Border for card */
+  border-radius: 8px; /* Adjust border radius as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  width: 150px;
+  height: 50px;
+}
+ 
+.content-card {
+  flex: 1; /* Take remaining space */
+}
+ 
+.favorite-icon {
+  cursor: pointer; /* Show pointer on hover */
+}
+ 
+ 
+.search-bar {
+  overflow: auto;
+  height: 300px;
+  width: 250px;
+  position: relative;
+  display: flex;
+  input{
+    border: none;
+    height: 35px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: rgba(171, 171, 171, 0.354);
+  }
+
+  mat-icon{
+    
+  }
+}
+
+.week-box{
+    display: flex;
+    overflow: auto;
+    height: calc(100vh - 185px);
+      // overflow-x: auto;
+    // justify-content: center;
+}
+
+.calendar{
+  position: relative;
+  display: flex;
+  
+  // overflow: auto;
+  .prevweek{
+    position: absolute;
+    top: 0;
+    right: 45%;
+  }
+  .week{
+    position: absolute;
+    top: 0;
+    right: 30%;
+    // font-size: larger;
+    display: inline-block;
+    padding: 8px 16px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Adjust border radius as needed */
+    background-color: #fff;
+    color: #333; /* Adjust text color as needed */
+    // cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #ccccd3cd; /* Change background color on hover */
+    }
+  }
+  .nextweek{
+    position: absolute;
+    top: 0;
+    right: 25%;
+  }
+
+  .prevmonth{
+    position: absolute;
+    top: 0;
+    right: 20%;     
+  }
+
+  .month{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    // font-size: larger;
+    display: inline-block;
+    padding: 8px 16px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Adjust border radius as needed */
+    background-color: #fff;
+    color: #333; /* Adjust text color as needed */
+    // cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #ccccd3cd; /* Change background color on hover */
+    }    
+  }
+
+  .nextmonth{
+    position: absolute;
+    top: 0;
+    right: 5%;        
+  }
+}
+
+.example-card {
+    width: 200px;
+    height: 500px;
+    // overflow: auto;
+
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .example-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+ 

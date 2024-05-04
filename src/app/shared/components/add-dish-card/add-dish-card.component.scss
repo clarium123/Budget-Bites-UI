@@ -1,0 +1,83 @@
+@import '../../../../assets/themes/theme-variables.scss';
+
+  .dish-card {
+    display: flex;
+    border-radius: 12px;
+    margin-top:10px;
+    margin-left: 10px;
+    height: 150px;
+    width: 200px;
+    overflow: hidden;
+    box-shadow:  0px 4px 8px grey;
+  }  
+  .dish-info {
+    flex: 1;
+    margin-left: 8px;
+   
+   // padding: 16px;
+  }
+  .dish-details{
+    height:100px;
+  }
+  .dish-name {
+    margin-top:8px;
+    font-weight: bold;
+  }
+  
+  .dish-price {
+    font-size: small;
+  }
+  
+  .dish-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items:center ;
+  }
+  
+  .dish-image img {
+    width: 80%;
+    border-radius: 8px;
+    margin-top:8px;
+  }
+  
+  .add-button {
+    position: relative;
+    bottom: 20px; 
+    left: 40%;
+    transform: translateX(-50%);
+    background-color:$clr-mainly-green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    height:30px;
+    width: 50px;
+  }
+  .serves-input{
+  margin-left: 12px;
+  }
+  .dish-details{
+    margin-bottom: 1px !important;
+  }
+  .serves-input button {
+    // position: absolute;
+    // bottom: 0 !important;
+    width: 20px;
+    height: 20px;
+    background-color:$clr-mainly-green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    //margin-bottom: 3px !important;
+  }
+  
+  .serves-input-box{
+    height:20px;
+    width: 30px;
+    border: solid 1px black;
+  }
+
+  
+  

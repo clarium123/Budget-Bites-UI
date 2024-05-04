@@ -1,0 +1,83 @@
+@import '../../../../assets/themes/theme-variables.scss';
+
+.add-dish-pop-up{
+    height:500px;
+    width:700px;
+    //border-radius: 12px;
+}
+
+.header{
+    height: 50px;
+    color: white;
+    width: 100%;
+    background-color: $clr-mainly-green;
+    text-align: start;
+    padding:12px;
+}
+.search-container {
+   display: flex;
+    height:70px;
+    border-bottom: solid 0.5px grey;
+  }
+  .search{
+   display: flex;
+   align-items: center;
+   padding-left: 20px;
+  }
+  
+
+  .input-box{
+    height:69px;
+  }
+  input {
+    height: 40px;
+    border-top-right-radius: 20px;
+    margin-left: 28px;
+    border-bottom-right-radius: 20px;
+  }
+  .search-icon{
+    display: flex;
+    align-items: center;
+    background-color: $clr-mainly-green;
+    color: white;
+    position:relative;
+    top:0px;
+    left:-195px;
+    width:30px;
+    height:40px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid black;
+  }
+.filters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:600px;
+}
+.list{
+  // display: flex;
+  height:350px;
+  overflow: auto;
+  // width: 700px;
+}
+.cusine-box{
+  padding: 12px;
+  width:125px;
+}
+.search-btn{
+  border:none;
+  background-color:  $clr-mainly-green;
+  color:white;
+  height:40px;
+  border-radius: 12px;
+}
+.veg-nonveg{
+  padding: 12px;
+}
+.form-controls{
+  display: flex;
+  align-items: center;
+}
+
+ 

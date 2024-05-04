@@ -1,0 +1,48 @@
+@import '../../../../assets/themes/theme-variables.scss';
+
+.meal-card-container {
+    border-left: solid 2px $clr-light-gray;
+}
+
+.date-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.day-text {
+    font-size: 14px;
+    color: $clr-mainly-green;
+}
+
+.meal-type-text {
+    color: $clr-dark-gray;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.meal-card {
+    border: solid 1px $clr-mainly-green;
+    border-radius: 12px;
+}
+
+.dish-image {
+    border-radius: 12px !important;
+}
+
+.dish-icon {
+    padding: 8px;
+    background: #5454f7;
+    color: white;
+    border-radius: 50%;
+    font-size: 28px;
+}
+
+.add-more-item-card {
+    border: solid 1px $clr-mainly-green;
+    border-radius: 12px;
+    width: max-content;
+}
+
+.add-more-text {
+    font-size: 12px;
+}

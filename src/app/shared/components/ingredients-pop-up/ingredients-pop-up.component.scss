@@ -1,0 +1,96 @@
+@import '../../../../assets/themes/theme-variables.scss';
+.ingredients-popup{
+    height: 500px;
+    width: 700px;
+    border-radius: 12px !important;
+    
+}
+.header{
+    height: 50px;
+    color: white;
+    width: 100%;
+    background-color: $clr-mainly-green;
+    text-align: start;
+    padding:12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.body{
+    height: 400px; 
+    display: flex;
+    justify-content: center;
+}
+.save-button{
+    border: none;
+    color: white;
+    background-color: $clr-mainly-green;
+    border-radius: 8px;
+    height: 30px;
+    width:80px;
+    margin-right: 10px;
+}
+.cancel-button{
+    border:none;
+    color: white;
+    background-color:$clr-philippine-silver;
+    border-radius: 8px;
+    height: 30px;
+    width:80px;
+    margin-right: 10px;
+}
+.footer{
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 12px;
+}
+
+th{
+   font-size: medium;
+
+}
+thead{
+    background-color: white;
+    position: sticky; 
+    
+}
+
+table{
+
+   
+    width: 600px;
+}
+.table-container{
+    margin-top: 10px;
+   // height:400px;
+    overflow-x:hidden;
+}
+.data-row{
+    height: 50px;
+}
+.close-button{
+    border: none;
+    color: white;
+    background: none;
+   
+    //border-radius: 15px;
+    height: 30px;
+    width: 30px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 0; /* Set the width of the scrollbar to 0 */
+    display: none; /* Hide the scrollbar */
+  }
+  .step-no{
+    width:20%;
+    text-align: center;
+  }
+  .step{
+    text-align: center;
+  }
+  .step-data{
+     padding-top: 12px;
+  }

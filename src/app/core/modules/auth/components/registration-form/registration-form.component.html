@@ -1,0 +1,187 @@
+<!-- <img class="wave" src="../../../../../../assets/images/wave.png"> -->
+<div class="registration-container">
+  <div class="scrollable"> 
+  <mat-card class="registration-card">
+  <p style="text-align: center; font-size:x-large;  ">Registration Form</p>
+  <mat-horizontal-stepper linear class="regi-stepper">
+    <mat-step [stepControl]="personalDetailsFormGroup"> 
+      <ng-template matStepLabel >Personal Details</ng-template> 
+      <form [formGroup]="personalDetailsFormGroup" > 
+        <div style="margin-top: 30px; margin-bottom: 100px;"> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>First Name</mat-label> 
+            <input matInput formControlName="firstName" placeholder="Enter your first name" maxlength="25"> 
+            <mat-error *ngIf="personalDetailsFormGroup.get('firstName')?.invalid && personalDetailsFormGroup.get('firstName')?.touched" class="error-field"> 
+              First Name is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Middle Name</mat-label> 
+            <input matInput formControlName="middleName" placeholder="Enter your middleName name" maxlength="25"> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Last Name</mat-label> 
+            <input matInput formControlName="lastName" placeholder="Enter your last name" maxlength="25"> 
+            <mat-error *ngIf="personalDetailsFormGroup.get('lastName')?.invalid && personalDetailsFormGroup.get('lastName')?.touched" class="error-field"> 
+              Last Name is required 
+            </mat-error> 
+          </mat-form-field><br> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Username</mat-label> 
+            <input matInput formControlName="username" placeholder="Enter your username" maxlength="50"> 
+            <mat-error *ngIf="personalDetailsFormGroup.get('username')?.invalid && personalDetailsFormGroup.get('username')?.touched" class="error-field"> 
+              Username is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Password</mat-label> 
+            <input matInput type="password" formControlName="password" placeholder="Enter your password"> 
+            <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" style="text-align: end;"></button>
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> [type]="hide ? 'password' : 'text'"-->
+            <mat-error *ngIf="personalDetailsFormGroup.get('password')?.invalid && personalDetailsFormGroup.get('password')?.touched" class="error-field"> 
+              Password is required 
+            </mat-error> 
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Confirm Password</mat-label> 
+            <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm your password"> 
+            <mat-error *ngIf="personalDetailsFormGroup.get('confirmPassword')?.invalid && personalDetailsFormGroup.get('confirmPassword')?.touched" style="text-align: left;"> Confirm Password is required </mat-error> 
+            <mat-error *ngIf="personalDetailsFormGroup.hasError('passwordMismatch') && personalDetailsFormGroup.get('confirmPassword')?.touched"> Passwords do not match </mat-error> 
+          </mat-form-field> 
+        </div> 
+        <div class="button-container">
+        <button mat-button matStepperNext>Next</button> 
+        </div>
+      </form> 
+    </mat-step> 
+    <mat-step [stepControl]="contactDetailsFormGroup" > 
+      <ng-template matStepLabel>Contact Details</ng-template> 
+      <form [formGroup]="contactDetailsFormGroup"> 
+        <div style="margin-top: 30px; margin-bottom: 17px;"> 
+          <mat-form-field class="example-full-width" appearance="outline">
+             <mat-label>Email</mat-label> 
+             <input matInput formControlName="email" placeholder="Ex. pat@example.com"> 
+             <mat-error *ngIf="contactDetailsFormGroup.get('email')?.errors?.['required'] && contactDetailsFormGroup.get('email')?.touched" class="error-field"> Email is required </mat-error>
+              <mat-error *ngIf="contactDetailsFormGroup.get('email')?.errors?.['email'] && contactDetailsFormGroup.get('email')?.touched" class="error-field"> Please enter a valid email address  </mat-error> 
+            </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Contact Number</mat-label> 
+            <input matInput formControlName="contactNumber" placeholder="Enter your contact number" maxlength="10" type="number"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('contactNumber')?.invalid && contactDetailsFormGroup.get('contactNumber')?.touched" class="error-field"> 
+              Contact Number is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Address Line one</mat-label> 
+            <input matInput formControlName="addressLineOne" placeholder="Enter your address"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('addressLineOne')?.invalid && contactDetailsFormGroup.get('addressLineOne')?.touched" class="error-field"> 
+              Address is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Address Line Two</mat-label> 
+            <input matInput formControlName="addressLineTwo" placeholder="Enter your address"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('addressLineTwo')?.invalid && contactDetailsFormGroup.get('addressLineTwo')?.touched" class="error-field"> 
+              Address is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Pincode</mat-label> 
+            <input matInput type="number" formControlName="pincode" placeholder="Enter your pincode"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('pincode')?.invalid && contactDetailsFormGroup.get('pincode')?.touched" class="error-field"> 
+              Pincode is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="half-width" appearance="outline"> 
+            <mat-label>City</mat-label> 
+            <input matInput formControlName="city" placeholder="Enter your City"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('city')?.invalid && contactDetailsFormGroup.get('city')?.touched" class="error-field"> 
+              City is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="sechalf-width" appearance="outline"> 
+            <mat-label>State</mat-label> 
+            <input matInput formControlName="state" placeholder="Enter your state"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('state')?.invalid && contactDetailsFormGroup.get('state')?.touched" class="error-field"> 
+              State is required 
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Country</mat-label> 
+            <input matInput formControlName="country" placeholder="Enter your Country"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('country')?.invalid && contactDetailsFormGroup.get('country')?.touched" class="error-field"> 
+              Country is required 
+            </mat-error> 
+          </mat-form-field> 
+        </div> 
+        <div class="button-container">
+        <button mat-button matStepperPrevious class="custom-back-button">Back</button> 
+        <button mat-button matStepperNext>Next</button> </div>
+      </form> 
+    </mat-step> 
+
+    <!-- Dietary Preference Step Food Preference as input budget amount allergic Food--> 
+    <mat-step> 
+      <ng-template matStepLabel>Dietary Preference</ng-template> 
+      <form [formGroup]="dietaryPreferenceFormGroup"> 
+        <div style="margin-top: 30px;"> 
+          <!-- Dietary Preference Fields --> 
+          <mat-form-field class="example-full-width" appearance="outline"> 
+            <mat-label>Number of Family Members</mat-label> 
+            <input matInput formControlName="familyMembers" placeholder="Enter number of family members" type="number"> 
+              <mat-error *ngIf="dietaryPreferenceFormGroup.get('familyMembers')?.errors?.['required'] && dietaryPreferenceFormGroup.get('familyMembers')?.touched"> Family members field is required. 
+              </mat-error> 
+              <mat-error *ngIf="dietaryPreferenceFormGroup.get('familyMembers')?.errors?.['negative'] && dietaryPreferenceFormGroup.get('familyMembers')?.touched"> 
+              Family members field cannot be negative. 
+              </mat-error> 
+          </mat-form-field> 
+          <mat-form-field class="example-full-width" appearance="outline" style="margin-top: 10px;">
+            <mat-label>Food Preference</mat-label>
+            <mat-select>
+              @for (food of foods; track food) {
+                <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="outline" floatLabel="always"> 
+            <mat-label>Budget </mat-label> 
+            <input matInput type="number" formControlName="familyMembers" placeholder="0" style="text-align:right">
+            <span matTextPrefix>$&nbsp;</span>
+            <span matTextSuffix>.00</span>
+          </mat-form-field>
+          <div class="row">
+            <div class="shown-card">  
+              <p style="text-align: left; font-size:medium; font-weight: bold;">Select the Cuisines you prefer</p>
+              <div class="chip-container">       
+                <div class="chip-row">
+                  <div class="chip"             
+                       *ngFor="let cuisine of availableCuisines; let i = index;"  
+                       [ngStyle]="getChipStyle(cuisine)"           
+                       [class.selected]="isSelected(cuisine)"            
+                       (click)="toggleCuisine(cuisine)">            
+                    {{ cuisine }}              
+                  </div>             
+                </div>             
+              </div>             
+            </div>
+            <mat-form-field class="text-area-width" appearance="outline" style="margin-top: 10px;"> 
+              <mat-label>Food Allergic</mat-label> 
+              <textarea matInput formControlName="foodAllergies" placeholder="Enter foods allergic to"></textarea> 
+            </mat-form-field>  
+          </div>
+          <mat-checkbox formControlName="termsAndConditions"> 
+            I accept the terms and conditions 
+          </mat-checkbox> 
+        </div> 
+        <div class="button-container">
+        <button mat-button matStepperPrevious class="custom-back-button">Back</button> 
+        <button mat-button class="finish-button" [disabled]="dietaryPreferenceFormGroup.invalid" (click)="onSubmit()">Finish</button> </div>
+      </form> 
+    </mat-step> 
+
+  </mat-horizontal-stepper> 
+</mat-card>
+</div> 
+</div>
+
+ 

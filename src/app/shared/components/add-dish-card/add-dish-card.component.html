@@ -1,0 +1,25 @@
+<div class="dish-card">
+  <div class="dish-info">
+    <div class="dish-info-container">
+      <div class="dish-details">
+        <div class="dish-name" [ngStyle]="calculateFontSize(dishName)">{{dishName}}</div>
+
+        <div class="dish-price">Price: ${{dishPrice}}</div>
+      </div>
+      <div class="serves-input">
+        <div class="row">
+          <button (click)="decrementServes()">-</button>
+          <div class="serves-input-box">{{serves}}</div>
+          <button (click)="incrementServes()">+</button>
+        </div>
+        <div class="row">Serves</div>
+      </div>
+    </div>
+  </div>
+  <div class="dish-image">
+    <div>
+      <img src="{{dishImageUrl}}" alt="Dish Image">
+      <button (click)="addbtton()" class="add-button">Add</button>
+    </div>
+  </div>
+</div>

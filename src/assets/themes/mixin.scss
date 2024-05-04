@@ -1,0 +1,66 @@
+@import 'theme-variables.scss';
+
+@mixin btn-primary{
+  color: $clr-white;
+  background-color: $clr-mainly-green;
+}
+
+@mixin btn-secondary{
+  color: $clr-white;
+  background-color: $clr-philippine-silver;
+}
+
+@mixin heading-h1{
+  color: $clr-mainly-green;
+  font-size: $Heading-1;
+  font-weight: $font-medium;
+}
+
+@mixin heading-h2{
+  color: $clr-mainly-green;
+  font-size: $Heading-2;
+  font-weight: $font-medium;
+}
+
+@mixin heading-h3{
+  color: $clr-mainly-green;
+  font-size: $Heading-3;
+  font-weight: $font-medium;
+}
+
+@mixin heading-h4{
+  color: $clr-mainly-green;
+  font-size: $Typography-1;
+  font-weight: $font-medium;
+
+}
+
+@mixin heading-h5{
+  color: $clr-mainly-green;
+  font-size: $Typography-2;
+  font-weight: $font-medium;
+}
+
+@mixin sub-heading-h1{
+  color: $clr-airex-grey;
+  font-size: $Typography-1;
+  font-weight: $font-medium;
+}
+
+@mixin sub-heading-h2{
+  color: $clr-airex-grey;
+  font-size: $Typography-2;
+  font-weight: $font-medium;
+}
+
+@mixin sub-heading-h3{
+  color: $clr-airex-grey;
+  font-size: $Typography-3;
+  font-weight: $font-medium;
+}
+
+@mixin sub-heading-h4{
+  color: $clr-airex-grey;
+  font-size: $Typography-4;
+  font-weight: $font-normal;
+}

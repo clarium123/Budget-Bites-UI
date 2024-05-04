@@ -1,0 +1,84 @@
+<!-- <p>meal-planner works!</p> -->
+<div class="container-fluid row py-1">
+  <div class="col-2 mt-1">
+    <div class="favorites">
+      <div class="d-flex flex-row">
+        <mat-icon color="warn" class="me-2">favorite</mat-icon>
+        <h4><b>Favorites</b></h4>
+      </div>
+      <div class="">
+        @for ( favoriteDish of favoriteDishList; track favoriteDish) { 
+          <mat-card class="meal-card mb-2 p-2">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex align-items-center">
+                <span class="add-more-text ms-2">{{favoriteDish}}</span>
+              </div>
+              <button 
+                type="button"
+                mat-mini-fab 
+                aria-label="Add more dish"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </mat-card>
+        }
+
+      </div>
+    </div>
+    <div class="search-bar">
+      <input
+        class="form-control mt-1"
+        type="text"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="tune-1" mat-icon-button><mat-icon>tune</mat-icon></button>
+      <!-- <button class="not-1" mat-icon-button><mat-icon >notifications</mat-icon></button> -->
+      <!-- <form class="mx-auto search-box">
+      <input class="form-control mt-1" type="text" placeholder="Search" aria-label="Search">
+      <button class="tune-1" mat-icon-button><mat-icon >tune</mat-icon></button> 
+      <button class="not-1" mat-icon-button><mat-icon >notifications</mat-icon></button>
+    </form> -->
+    </div>
+  </div>
+  <div class="col-10 mt-1 content">
+    <div class="calendar">
+      <div class="budget-container ms-2 ">
+        <input class="budget" matInput placeholder="Budget" [(ngModel)]="val" (ngModelChange)="onInpChange()"/>
+        <span>    / {{budgetVal}}$</span>
+      </div>
+      <button mat-icon-button class="prevweek" (click)="previousWeek()">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+      <div class="week mx-auto">{{ dispStart }} - {{ dispEnd }}</div>
+      <button mat-icon-button class="nextweek" (click)="nextWeek()">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+
+      <button mat-icon-button class="prevmonth" (click)="previousMonth()">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+      <div class="month mx-auto">{{ dispMonth }}</div>
+      <button mat-icon-button class="nextmonth" (click)="nextMonth()">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+    </div>
+
+    <div [hidden]="!bool" class="week-box mt-5">
+      <div cdkDropListGroup class="d-flex flex-row">
+        <div *ngFor="let item of dispArrString">
+          <budget-bites-meal-week-card
+            [dateHeading]="item.date"
+            [daySubHeading]="item.day"
+            [mealDetail]="item.mealDetail"
+            [dateInFullFormat]="item.dateInFullFormat"
+            (addMoreDishEvent)="addMoreDish($event)"
+            (removeDishEvent)="deleteDish($event)"
+          ></budget-bites-meal-week-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

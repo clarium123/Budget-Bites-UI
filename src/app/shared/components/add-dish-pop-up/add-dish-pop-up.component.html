@@ -1,0 +1,55 @@
+<div class="add-dish-pop-up">
+  <div class="header">
+    <div>
+      <h1>Add Dish for {{data.mealType}}</h1>
+    </div>
+  </div>
+  <div class="body">
+
+    <div class="search-container">
+      <div class="search">
+        <input matInput placeholder="Search dish..">
+        <div class="search-icon">
+          <mat-icon>search</mat-icon>
+        </div>
+      </div>
+      
+        <div class="filters">
+          <form [formGroup]="dishForm">
+            <div class="form-controls">
+              <div class="cusine-box">
+                <mat-select placeholder=" choose a cusine" formControlName="cusineSelect">
+                  <mat-option *ngFor="let topping of getCusines()"  [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+  
+              </div>
+              <div class="veg-nonveg" >
+                <mat-radio-group  formControlName="foodPreference">
+                  <mat-radio-button value="veg">Veg</mat-radio-button>
+                  <mat-radio-button  value="nonveg">Non-Veg</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="search-button">
+                <button class="search-btn" (click)="addDish()">Search</button>
+              </div>
+            </div>
+            
+
+
+          </form>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="list-container">
+      <div class="list container-fluid row">
+        <add-dish-card [dishName]=dish.name [dishPrice]=price [dishImageUrl]=url (addButtonClicked)=addDishes(dish.name) [mat-dialog-close]="dish" class="col-4"
+          *ngFor="let dish of getDishes().dishes"></add-dish-card>
+      </div>
+
+
+    </div>
+  </div>

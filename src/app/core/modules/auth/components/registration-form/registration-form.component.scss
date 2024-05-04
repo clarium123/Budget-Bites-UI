@@ -1,0 +1,164 @@
+.registration-container {
+  height: 100vh;
+  background-image: url('../../../../../../assets/images/wave.png');
+  background-repeat: no-repeat;
+
+}
+.regi-stepper {
+  height: 470px;
+  border-radius: 15px;
+}
+.scrollable{
+  overflow-y: auto;
+} 
+
+.registration-card { 
+    background-color: #f1f1f1;
+    width: 78%;
+    height:550px;
+    margin: auto;
+    margin-top: 80px;   
+    padding: 20px; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow-y: auto;
+    margin-bottom: 50px;
+  } 
+  
+  .example-full-width{
+    align-items: center;
+    margin-left: 60px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 270px;
+
+  }
+  .text-area-width{
+    align-items: center;
+    margin-left: 70px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 630px;
+    height: 120px;
+  }
+  .example-width{
+    align-items: center;
+    margin-left: 60px;
+    text-align: center;
+    width: 270px;
+  }
+  .full-width{
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 18px;
+
+  }
+  .chip-container{
+    display:flex;
+    flex-wrap: wrap;
+  }
+  .chip-row{
+    display:flex;
+    flex-wrap: wrap;
+  
+  }
+ 
+  .remove-icon {
+    top: 50%;
+    right: 0;
+    font-size: smaller;
+    cursor: pointer;
+  }
+  ::ng-deep .mat-horizontal-stepper .mat-step-label {
+  color: red;
+}
+  .chip{
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 20px;
+    //width: 100px;
+    padding: 4px;
+
+    margin-bottom: 8px;
+    border-color: #38D39F; 
+    color: #38D39F;
+    margin-left: 8px;
+  } 
+    .selected { 
+      background-color:#38D39F;  
+      color: #ffffff;
+    } 
+  .cusine-input{
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 380px;
+  }
+  
+  .shown-card{
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 270px;
+  }
+  .half-width{
+    align-items: center;
+    margin-left: 60px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 130px;
+  }
+  .sechalf-width{
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 130px;
+  }
+   .error-field{
+    //text-align: left;
+    text-align: initial;
+  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+ 
+
+
+  .registration-form { 
+    overflow-y: auto;
+  } 
+
+ .custom-back-button{
+  width:12%;
+  background-color:#b6b2b2;
+  color:#ffffff !important;
+  margin-right: 8px;
+
+ }
+ .finish-button{
+    width: 12%;
+    text-align: center;
+    align-items: center;
+    background-color: #38D39F;
+    color:#ffffff !important;
+ }
+ .button-container{
+  display: flex;
+  justify-content: center;
+
+}
+  button[type="submit"] {
+    width: 12%;
+    text-align: center;
+    align-items: center;
+    background-color: #38D39F;
+    color:#ffffff;
+  } 
+  
+   

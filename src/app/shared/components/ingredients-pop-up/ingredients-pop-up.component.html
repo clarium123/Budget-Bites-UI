@@ -1,0 +1,54 @@
+<div class="ingredients-popup">
+  <div class="header">
+    <div>
+      <h1>{{data.title}}  </h1>
+    </div>
+    <div> <button (click)=" onNoClick()" class="close-button"><mat-icon>close</mat-icon></button></div>
+  </div>
+  <div class="body">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Recepie">
+
+        <div class="table-container">
+          <table>
+            <thead class="table-head">
+              <tr>
+                <th class="step-no"></th>
+                <th class="step">Steps to Follow</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data-row" *ngFor="let step of dishRecepie.steps">
+                <td  class="step-no">Step-{{step.step_number}}</td>
+                <td class="step-data">{{step.instruction}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </mat-tab>
+      <mat-tab label="Ingredients">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Ingredients</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data-row" *ngFor="let ing of dishIngredients.ingredients">
+                <td>{{ing.ingredient}}</td>
+                <td>{{ing.quantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <!-- <div class="footer">
+    <button class="cancel-button" (click)=" onNoClick()">Close</button>
+    <button class="save-button">Save</button>
+  </div> -->
+</div>

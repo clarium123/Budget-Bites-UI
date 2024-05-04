@@ -1,0 +1,292 @@
+<!-- <div cdkDropListGroup> -->
+  <!-- <div class="row"> -->
+    <!-- <div class="col-md-4">
+      <div class="example-container">
+        <h2>Done</h2>
+    
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          @for (item of done; track item) {
+            <div class="example-box" cdkDrag>{{item}}</div>
+          }
+        </div>
+      </div>
+    </div> -->
+  <!-- <div class="col-md-8"> -->
+    <div class="row">
+      <div class="col-md-12">
+          <div class="d-flex meal-card-container">
+              <div class="row mx-2">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12 d-flex align-items-center justify-content-center">
+                      <span class="date-text">{{dateHeading || "(Date)"}}</span>
+                      <span class="day-text ms-2">{{"("+daySubHeading+")" || "(Day)" }}</span>
+                      <!-- <button mat-icon-button aria-label="add meal type">
+                        <mat-icon>add_circle_outline</mat-icon>
+                      </button> -->
+                    </div>
+                  </div>
+                  <!-- BreakFast -->
+                  <div class="row mt-2">
+                      <div class="col-md-12">
+                        <div class="row mb-2">
+                          <div class="col-md-12">
+                            <span class="meal-type-text">BreakFast</span>
+                          </div>
+                        </div>
+                        <div
+                          cdkDropList
+                          [cdkDropListData]="mealDetail.breakFast"
+                          class="example-list"
+                          (cdkDropListDropped)="drop($event)">
+                          @for (item of mealDetail.breakFast; track item) {
+                            <mat-card class="meal-card mb-2 p-2" cdkDrag>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  @if (item.isFavorite) {     
+                                    <button mat-icon-button>
+                                      <mat-icon color="warn">favorite</mat-icon>
+                                    </button>
+                                    <span>Favorite</span>
+                                  }
+                                </div>
+                                <button mat-icon-button 
+                                  aria-label="Example icon button with a vertical three dot icon"
+                                  [matMenuTriggerFor]="afterMenu"
+                                >
+                                  <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #afterMenu="matMenu">
+                                  <button type="button" mat-menu-item (click)="this.openPopup(item.dishName)">View Detail</button>
+                                  <button type="button" mat-menu-item (click)="this.dishAction('breakfast', 'delete')">Remove</button>
+                                </mat-menu>
+                              </div>
+                              <mat-card-title-group>
+                                  <img mat-card-sm-image class="dish-image" src="{{item.imageUrl}}" alt="img card" />
+                                <mat-card-title class="px-2">{{item.dishName}}</mat-card-title>
+                                <mat-card-subtitle class="px-2">{{item.shortDiscription}}</mat-card-subtitle>
+                              </mat-card-title-group>
+                            </mat-card>
+                          }
+                          <mat-card class="add-more-item-card mb-2 p-2">
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex align-items-center">
+                                <span class="dish-icon">
+                                  <mat-icon>restaurant_menu</mat-icon>
+                                </span>
+                                <span class="add-more-text ms-2">Add More Item</span>
+                              </div>
+                              <button 
+                                type="button"
+                                mat-icon-button 
+                                aria-label="Add more dish"
+                                (click)="this.dishAction('breakfast', 'add')"                              
+                              >
+                                <mat-icon>add</mat-icon>
+                              </button>
+                            </div>
+                          </mat-card>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- Lunch -->
+                  <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div class="row mb-2">
+                          <div class="col-md-12">
+                            <span class="meal-type-text">Lunch</span>
+                          </div>
+                        </div>
+                        <div
+                          cdkDropList
+                          [cdkDropListData]="mealDetail.lunch"
+                          class="example-list"
+                          (cdkDropListDropped)="drop($event)">
+                          @for (item of mealDetail.lunch; track item) {
+                            <mat-card class="meal-card mb-2 p-2" cdkDrag>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  @if (item.isFavorite) {     
+                                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                                      <mat-icon color="warn">favorite</mat-icon>
+                                    </button>
+                                    <span>Favorite</span>
+                                  }
+                                </div>
+                                <button mat-icon-button 
+                                  aria-label="Example icon button with a vertical three dot icon"
+                                  [matMenuTriggerFor]="afterMenu"
+                                >
+                                  <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #afterMenu="matMenu">
+                                  <button mat-menu-item (click)="this.openPopup(item.dishName)">View Detail</button>
+                                  <button mat-menu-item (click)="this.dishAction('lunch', 'delete')">Remove</button>
+                                </mat-menu>
+                              </div>
+                              <mat-card-title-group>
+                                  <img mat-card-sm-image class="dish-image" src="{{item.imageUrl}}" alt="img card" />
+                                <mat-card-title class="px-2">{{item.dishName}}</mat-card-title>
+                                <mat-card-subtitle class="px-2">{{item.shortDiscription}}</mat-card-subtitle>
+                              </mat-card-title-group>
+                            </mat-card>
+                          }
+                          <mat-card class="add-more-item-card mb-2 p-2">
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex align-items-center">
+                                <span class="dish-icon">
+                                  <mat-icon>restaurant_menu</mat-icon>
+                                </span>
+                                <span class="add-more-text ms-2">Add More Item</span>
+                              </div>
+                              <button
+                                type="button" 
+                                mat-icon-button 
+                                aria-label="Add more dish"
+                                (click)="this.dishAction('lunch', 'add')"
+                              >
+                                <mat-icon>add</mat-icon>
+                              </button>
+                            </div>
+                          </mat-card>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- Snacks -->
+                  <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div class="row mb-2">
+                          <div class="col-md-12">
+                            <span class="meal-type-text">Snacks</span>
+                          </div>
+                        </div>
+                        <div
+                          cdkDropList
+                          [cdkDropListData]="mealDetail.snacks"
+                          class="example-list"
+                          (cdkDropListDropped)="drop($event)">
+                          @for (item of mealDetail.snacks; track item) {
+                            <mat-card class="meal-card mb-2 p-2" cdkDrag>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  @if (item.isFavorite) {     
+                                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                                      <mat-icon color="warn">favorite</mat-icon>
+                                    </button>
+                                    <span>Favorite</span>
+                                  }
+                                </div>
+                                <button mat-icon-button 
+                                  aria-label="Example icon button with a vertical three dot icon"
+                                  [matMenuTriggerFor]="afterMenu"
+                                >
+                                  <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #afterMenu="matMenu">
+                                  <button mat-menu-item (click)="this.openPopup(item.dishName)">View Detail</button>
+                                  <button mat-menu-item (click)="this.dishAction('snacks', 'delete')">Remove</button>
+                                </mat-menu>
+                              </div>
+                              <mat-card-title-group>
+                                  <img mat-card-sm-image class="dish-image" src="{{item.imageUrl}}" alt="img card" />
+                                <mat-card-title class="px-2">{{item.dishName}}</mat-card-title>
+                                <mat-card-subtitle class="px-2">{{item.shortDiscription}}</mat-card-subtitle>
+                              </mat-card-title-group>
+                            </mat-card>
+                          }
+                          <mat-card class="add-more-item-card mb-2 p-2">
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex align-items-center">
+                                <span class="dish-icon">
+                                  <mat-icon>restaurant_menu</mat-icon>
+                                </span>
+                                <span class="add-more-text ms-2">Add More Item</span>
+                              </div>
+                              <button
+                                type="button" 
+                                mat-icon-button 
+                                aria-label="Add more dish"
+                                (click)="this.dishAction('snacks', 'add')"
+                              >
+                                <mat-icon>add</mat-icon>
+                              </button>
+                            </div>
+                          </mat-card>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- Dinner -->
+                  <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div class="row mb-2">
+                          <div class="col-md-12">
+                            <span class="meal-type-text">Dinner</span>
+                          </div>
+                        </div>
+                        <div
+                          cdkDropList
+                          [cdkDropListData]="mealDetail.dinner"
+                          class="example-list"
+                          (cdkDropListDropped)="drop($event)">
+                          @for (item of mealDetail.dinner; track item) {
+                            <mat-card class="meal-card mb-2 p-2" cdkDrag>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  @if (item.isFavorite) {     
+                                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                                      <mat-icon color="warn">favorite</mat-icon>
+                                    </button>
+                                    <span>Favorite</span>
+                                  }
+                                </div>
+                                <button mat-icon-button 
+                                  aria-label="Example icon button with a vertical three dot icon"
+                                  [matMenuTriggerFor]="afterMenu"
+                                >
+                                  <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #afterMenu="matMenu">
+                                  <button mat-menu-item (click)="this.openPopup(item.dishName)">View Detail</button>
+                                  <button mat-menu-item (click)="this.dishAction('dinner', 'delete')">Remove</button>
+                                </mat-menu>
+                              </div>
+                              <mat-card-title-group>
+                                  <img mat-card-sm-image class="dish-image" src="{{item.imageUrl}}" alt="img card" />
+                                <mat-card-title class="px-2">{{item.dishName}}</mat-card-title>
+                                <mat-card-subtitle class="px-2">{{item.shortDiscription}}</mat-card-subtitle>
+                              </mat-card-title-group>
+                            </mat-card>
+                          }
+                          <mat-card class="add-more-item-card mb-2 p-2">
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex align-items-center">
+                                <span class="dish-icon">
+                                  <mat-icon>restaurant_menu</mat-icon>
+                                </span>
+                                <span class="add-more-text ms-2">Add More Item</span>
+                              </div>
+                              <button 
+                                type="button"
+                                mat-icon-button 
+                                aria-label="Add more dish"
+                                (click)="this.dishAction('dinner', 'add')"
+                              >
+                                <mat-icon>add</mat-icon>
+                              </button>
+                            </div>
+                          </mat-card>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  <!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
