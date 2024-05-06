@@ -13,8 +13,8 @@ export interface RegistrationDetails {
     city: string;
     state: string;
     country: string;
-    familyMembers: number;
-    foodPreference: string;
+    familyMember: number;
+    foodPrefered: string;
     budget: number;
     foodAllergies: string;
     termsAndConditions: boolean;

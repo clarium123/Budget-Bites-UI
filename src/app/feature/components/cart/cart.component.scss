@@ -1,0 +1,82 @@
+@import '../../../../assets/themes/theme-variables.scss';
+
+.container {
+    display: flex;
+  }
+  
+  .col-2 {
+    width: 20%;
+  }
+  
+  .col-10 {
+    width: 80%;
+  }
+  
+  .month-display {
+    margin-top: 12px;
+    padding-left: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .weeks {
+    margin-top: 20px;
+  }
+  
+  .weeks button {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .week-button{
+    border: none;
+    background-color:$clr-mainly-green ;
+    color: white;
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 70%;
+    height: 50px;
+    border-radius: 18px;
+  }
+  .month-btn{
+    border: none;
+    background-color:$clr-mainly-green ;
+    color: white;
+    border-radius: 12px;
+    height:50px;
+  }
+  .bottom-row {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 16px;
+    background-color: #f0f0f0; /* Background color for the bottom row */
+  }
+  
+  .total-price {
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .place-order-button {
+    padding: 8px 16px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .place-order-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }
+  
+
+  .list{
+ height: 520px;
+ overflow: auto;
+  }
+  .col-2{
+    border-right:rgb(196, 190, 190) 1px solid;
+  }

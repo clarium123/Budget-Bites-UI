@@ -17,6 +17,7 @@ import { IngredientsPopUpComponent } from '@budget-bites/shared/components/ingre
 import { FoodCardComponent } from '@budget-bites/shared/components/food-card/food-card.component';
 import { AddDishPopUpComponent } from '@budget-bites/shared/components/add-dish-pop-up/add-dish-pop-up.component';
 import { AddDishCardComponent } from '@budget-bites/shared/components/add-dish-card/add-dish-card.component';
+import { CartCardComponent } from '@budget-bites/shared/components/cart-card/cart-card.component';
 
 
 
@@ -36,6 +37,7 @@ import { AddDishCardComponent } from '@budget-bites/shared/components/add-dish-c
     FoodCardComponent,
     AddDishPopUpComponent,
     AddDishCardComponent,
+    CartCardComponent,
   ],
   providers: [InvalidErrorStateMatcher],
   exports: [
@@ -47,7 +49,8 @@ import { AddDishCardComponent } from '@budget-bites/shared/components/add-dish-c
     FoodCardComponent,
     FormsModule,
     AddDishPopUpComponent,
-    AddDishCardComponent
+    AddDishCardComponent,
+    CartCardComponent
   ],
 })
 export class AppSharedModule {}

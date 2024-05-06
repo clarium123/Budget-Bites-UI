@@ -2,7 +2,7 @@
 
 .add-dish-pop-up{
     height:500px;
-    width:700px;
+    width:750px;
     //border-radius: 12px;
 }
 
@@ -59,25 +59,62 @@
   // display: flex;
   height:350px;
   overflow: auto;
-  // width: 700px;
+  min-width: 100px;
 }
-.cusine-box{
-  padding: 12px;
-  width:125px;
-}
+ .cusine-box{
+ width:150px;
+ }
 .search-btn{
   border:none;
   background-color:  $clr-mainly-green;
   color:white;
   height:40px;
+ 
   border-radius: 12px;
+}
+.search-btn:disabled,.search-btn[disabled]{
+  background-color: #9ddbc6;
+  color: rgba(252, 249, 249, 0.925);
 }
 .veg-nonveg{
   padding: 12px;
+  width: 150px;
 }
 .form-controls{
   display: flex;
+  justify-content: end;
   align-items: center;
+  margin-top: 12px;
 }
 
- 
+.serves-input button {
+  // position: absolute;
+  // bottom: 0 !important;
+  width: 20px;
+  height: 20px;
+  background-color:$clr-mainly-green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  //margin-bottom: 3px !important;
+}
+
+.serves-input-box{
+  height:20px;
+  width: 30px;
+  border: solid 1px black;
+}
+
+.serves-input{
+  padding-bottom: 4px;
+  padding-right: 32px;
+  display: flex;
+    align-items: center;
+}
+.spinner{
+  position: relative;
+  top: 140px;
+  left: 300px;
+height: 100px;
+width:100px}

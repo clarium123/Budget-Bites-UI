@@ -1,53 +1,70 @@
 <div class="add-dish-pop-up">
   <div class="header">
     <div>
-      <h1>Add Dish for {{data.mealType}}</h1>
+      <h1>Add dish for {{data.mealType}}</h1>
     </div>
   </div>
   <div class="body">
 
     <div class="search-container">
       <div class="search">
-        <input matInput placeholder="Search dish..">
+        <input matInput placeholder="Filter dish.." (input)="filterData()" [formControl]="dishFilterInput">
         <div class="search-icon">
-          <mat-icon>search</mat-icon>
+          <mat-icon>
+            filter_alt
+            </mat-icon>
         </div>
       </div>
-      
-        <div class="filters">
-          <form [formGroup]="dishForm">
-            <div class="form-controls">
-              <div class="cusine-box">
-                <mat-select placeholder=" choose a cusine" formControlName="cusineSelect">
-                  <mat-option *ngFor="let topping of getCusines()"  [value]="topping">{{topping}}</mat-option>
-                </mat-select>
-  
-              </div>
-              <div class="veg-nonveg" >
-                <mat-radio-group  formControlName="foodPreference">
-                  <mat-radio-button value="veg">Veg</mat-radio-button>
-                  <mat-radio-button  value="nonveg">Non-Veg</mat-radio-button>
-                </mat-radio-group>
-              </div>
+
+        <form [formGroup]="dishForm">
+          <div class="form-controls">
+            <div class="serves-input">
+
+                  <div><span>Serves</span></div>
+                  <button (click)="decreaseServingSize()">-</button>
+                  <div class="serves-input-box">{{servingSize}}</div>
+                  <button (click)="increaseServingSize()">+</button>
+
+
+                </div>
+             <div class="cusine-box">
+                  <mat-select placeholder=" choose a cusine" formControlName="cusineSelect">
+                    <mat-option *ngFor="let cusine of getCusines()" [value]="cusine">{{cusine}}</mat-option>
+                  </mat-select>
+
+                </div>
+              
+                <div class="veg-nonveg">
+                  <mat-select placeholder=" food Preferred" formControlName="foodPreference">
+                    <mat-option *ngFor="let prefer of getPreference()" [value]="prefer">{{prefer}}</mat-option>
+                  </mat-select>
+                </div>
               <div class="search-button">
-                <button class="search-btn" (click)="addDish()">Search</button>
-              </div>
+                  <button class="search-btn" [disabled]="!this.dishForm.valid" (click)="addDish()">Search</button>
+                </div>
             </div>
-            
-
-
-          </form>
-        </div>
 
 
 
+         
 
 
-    </div>
+
+        </form>
+      </div>
+
+
+  
+
+      
+    
     <div class="list-container">
       <div class="list container-fluid row">
-        <add-dish-card [dishName]=dish.name [dishPrice]=price [dishImageUrl]=url (addButtonClicked)=addDishes(dish.name) [mat-dialog-close]="dish" class="col-4"
-          *ngFor="let dish of getDishes().dishes"></add-dish-card>
+        <div class="spinner" *ngIf="isLoading">
+          <mat-spinner ></mat-spinner>
+        </div>
+        <add-dish-card [dishName]=dish.name [dishPrice]=dish.price [dishImageUrl]=dish.url
+          (addButtonClicked)=addDishes(dish) class="col-4" *ngFor="let dish of dishes"></add-dish-card>
       </div>
 
 

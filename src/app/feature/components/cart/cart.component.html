@@ -1,1 +1,38 @@
-<p>cart works!</p>
+<div class="row">
+    <div class="col-2">
+      <div class="month-display">
+        <button class="month-btn"(click)="prevMonth()">Prev</button>
+        <span>{{ currentMonth }}</span>
+        <button class="month-btn" (click)="nextMonth()">Next</button>
+      </div>
+      <div class="weeks">
+        <button class="week-button" *ngFor="let week of weeks" (click)="selectWeek(week)">
+            {{ formatDate(week.startDate) }} - {{ formatDate(week.endDate) }}
+          </button>
+      </div>
+    </div>
+    <div class="col-10">
+        <div class="list-container">
+            <div class="list container-fluid row"  >
+                <cart-card
+                [itemName]=ingredient
+                [price]=menuItem.ingredients[ingredient].price
+                [quantity]=menuItem.ingredients[ingredient].quantity
+                class="col-3"
+                *ngFor="let ingredient of getShopingList()"
+                ></cart-card>
+            </div>
+    
+        </div>
+              
+    </div>
+    <div class="col-md-12">
+        <div class="bottom-row">
+            <div class="total-price">
+              Total Price: ${{ totalPrice }}
+            </div>
+            <button class="place-order-button">Place Order</button>
+          </div>
+    </div>
+  </div>
+  

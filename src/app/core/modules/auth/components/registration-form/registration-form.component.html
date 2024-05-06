@@ -10,8 +10,8 @@
         <div style="margin-top: 30px; margin-bottom: 100px;"> 
           <mat-form-field class="example-full-width" appearance="outline"> 
             <mat-label>First Name</mat-label> 
-            <input matInput formControlName="firstName" placeholder="Enter your first name" maxlength="25"> 
-            <mat-error *ngIf="personalDetailsFormGroup.get('firstName')?.invalid && personalDetailsFormGroup.get('firstName')?.touched" class="error-field"> 
+            <input matInput formControlName="firstname" placeholder="Enter your first name" maxlength="25"> 
+            <mat-error *ngIf="personalDetailsFormGroup.get('firstname')?.invalid && personalDetailsFormGroup.get('firstname')?.touched" class="error-field"> 
               First Name is required 
             </mat-error> 
           </mat-form-field> 
@@ -21,8 +21,8 @@
           </mat-form-field> 
           <mat-form-field class="example-full-width" appearance="outline"> 
             <mat-label>Last Name</mat-label> 
-            <input matInput formControlName="lastName" placeholder="Enter your last name" maxlength="25"> 
-            <mat-error *ngIf="personalDetailsFormGroup.get('lastName')?.invalid && personalDetailsFormGroup.get('lastName')?.touched" class="error-field"> 
+            <input matInput formControlName="lastname" placeholder="Enter your last name" maxlength="25"> 
+            <mat-error *ngIf="personalDetailsFormGroup.get('lastname')?.invalid && personalDetailsFormGroup.get('lastname')?.touched" class="error-field"> 
               Last Name is required 
             </mat-error> 
           </mat-form-field><br> 
@@ -46,7 +46,7 @@
             <mat-label>Confirm Password</mat-label> 
             <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm your password"> 
             <mat-error *ngIf="personalDetailsFormGroup.get('confirmPassword')?.invalid && personalDetailsFormGroup.get('confirmPassword')?.touched" style="text-align: left;"> Confirm Password is required </mat-error> 
-            <mat-error *ngIf="personalDetailsFormGroup.hasError('passwordMismatch') && personalDetailsFormGroup.get('confirmPassword')?.touched"> Passwords do not match </mat-error> 
+            <mat-error *ngIf="personalDetailsFormGroup.hasError('passwordMismatch') && personalDetailsFormGroup.get('confirmPassword')?.touched && !personalDetailsFormGroup.get('confirmPassword')?.invalid "> Passwords do not match </mat-error> 
           </mat-form-field> 
         </div> 
         <div class="button-container">
@@ -60,21 +60,21 @@
         <div style="margin-top: 30px; margin-bottom: 17px;"> 
           <mat-form-field class="example-full-width" appearance="outline">
              <mat-label>Email</mat-label> 
-             <input matInput formControlName="email" placeholder="Ex. pat@example.com"> 
-             <mat-error *ngIf="contactDetailsFormGroup.get('email')?.errors?.['required'] && contactDetailsFormGroup.get('email')?.touched" class="error-field"> Email is required </mat-error>
-              <mat-error *ngIf="contactDetailsFormGroup.get('email')?.errors?.['email'] && contactDetailsFormGroup.get('email')?.touched" class="error-field"> Please enter a valid email address  </mat-error> 
+             <input matInput formControlName="emailId" placeholder="Ex. pat@example.com"> 
+             <mat-error *ngIf="contactDetailsFormGroup.get('emailId')?.errors?.['required'] && contactDetailsFormGroup.get('emailId')?.touched" class="error-field"> Email is required </mat-error>
+              <mat-error *ngIf="contactDetailsFormGroup.get('emailId')?.errors?.['emailId'] && contactDetailsFormGroup.get('emailId')?.touched" class="error-field"> Please enter a valid email address  </mat-error> 
             </mat-form-field> 
           <mat-form-field class="example-full-width" appearance="outline"> 
             <mat-label>Contact Number</mat-label> 
-            <input matInput formControlName="contactNumber" placeholder="Enter your contact number" maxlength="10" type="number"> 
-            <mat-error *ngIf="contactDetailsFormGroup.get('contactNumber')?.invalid && contactDetailsFormGroup.get('contactNumber')?.touched" class="error-field"> 
+            <input matInput formControlName="phone" placeholder="Enter your contact number" maxlength="10" type="text"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('phone')?.invalid && contactDetailsFormGroup.get('phone')?.touched" class="error-field"> 
               Contact Number is required 
             </mat-error> 
           </mat-form-field> 
           <mat-form-field class="example-full-width" appearance="outline"> 
             <mat-label>Address Line one</mat-label> 
-            <input matInput formControlName="addressLineOne" placeholder="Enter your address"> 
-            <mat-error *ngIf="contactDetailsFormGroup.get('addressLineOne')?.invalid && contactDetailsFormGroup.get('addressLineOne')?.touched" class="error-field"> 
+            <input matInput formControlName="address" placeholder="Enter your address"> 
+            <mat-error *ngIf="contactDetailsFormGroup.get('address')?.invalid && contactDetailsFormGroup.get('address')?.touched" class="error-field"> 
               Address is required 
             </mat-error> 
           </mat-form-field> 
@@ -87,7 +87,7 @@
           </mat-form-field> 
           <mat-form-field class="example-full-width" appearance="outline"> 
             <mat-label>Pincode</mat-label> 
-            <input matInput type="number" formControlName="pincode" placeholder="Enter your pincode"> 
+            <input matInput type="text" formControlName="pincode" placeholder="Enter your pincode"> 
             <mat-error *ngIf="contactDetailsFormGroup.get('pincode')?.invalid && contactDetailsFormGroup.get('pincode')?.touched" class="error-field"> 
               Pincode is required 
             </mat-error> 
@@ -128,10 +128,10 @@
           <!-- Dietary Preference Fields --> 
           <mat-form-field class="example-full-width" appearance="outline"> 
             <mat-label>Number of Family Members</mat-label> 
-            <input matInput formControlName="familyMembers" placeholder="Enter number of family members" type="number"> 
-              <mat-error *ngIf="dietaryPreferenceFormGroup.get('familyMembers')?.errors?.['required'] && dietaryPreferenceFormGroup.get('familyMembers')?.touched"> Family members field is required. 
+            <input matInput formControlName="familyMember" placeholder="Enter number of family members" type="number"> 
+              <mat-error *ngIf="dietaryPreferenceFormGroup.get('familyMember')?.errors?.['required'] && dietaryPreferenceFormGroup.get('familyMember')?.touched"> Family members field is required. 
               </mat-error> 
-              <mat-error *ngIf="dietaryPreferenceFormGroup.get('familyMembers')?.errors?.['negative'] && dietaryPreferenceFormGroup.get('familyMembers')?.touched"> 
+              <mat-error *ngIf="dietaryPreferenceFormGroup.get('familyMember')?.errors?.['negative'] && dietaryPreferenceFormGroup.get('familyMember')?.touched"> 
               Family members field cannot be negative. 
               </mat-error> 
           </mat-form-field> 
@@ -145,7 +145,7 @@
           </mat-form-field>
           <mat-form-field class="example-full-width" appearance="outline" floatLabel="always"> 
             <mat-label>Budget </mat-label> 
-            <input matInput type="number" formControlName="familyMembers" placeholder="0" style="text-align:right">
+            <input matInput type="number" formControlName="familyMember" placeholder="0" style="text-align:right">
             <span matTextPrefix>$&nbsp;</span>
             <span matTextSuffix>.00</span>
           </mat-form-field>

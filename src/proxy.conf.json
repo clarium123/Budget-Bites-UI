@@ -1,8 +1,15 @@
 {
-  "/budget-bites/api": {
-    "target": "http://localhost:8080",
+  "/bbapi/api/": {
+    "target": "https://budget-bites.azurewebsites.net",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/llmapi/**": {
+    "target": "https://bbllmapi.azurewebsites.net",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
   }
+  
 }

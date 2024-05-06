@@ -1,8 +1,18 @@
+@import '../../../../assets/themes/theme-variables.scss';
+
 // .example-spacer {
 //     flex: content ;
 // }
 mat-toolbar {
   background-color: white;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.icon-theme {
+  color: $clr-mainly-green;
 }
 
 .example-icon {

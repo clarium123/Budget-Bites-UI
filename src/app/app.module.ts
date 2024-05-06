@@ -13,6 +13,7 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { SideNavComponent } from './core/components/side-nav/side-nav.component';
 //Service
 import { HttpInterceptorService } from './shared/services/http-interceptor/http.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpInterceptorService } from './shared/services/http-interceptor/http.
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     AppSharedModule,
     MealPlannerModule
   ],

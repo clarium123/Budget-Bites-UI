@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z1 navbar navbar-expand-sm navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
         <button
@@ -8,9 +8,9 @@
         aria-label="Example icon-button with menu icon"
         (click)="navigateHome()"
       >
-      <img src="../../../../assets/images/Clarium-c-logo.png" alt="">
-      </button> 
-      <span>Budget-Bites</span>
+    </button>  -->
+    <img class="cursor-pointer" src="../../../../assets/images/budget-bites-logo4.png" alt="logo" width="180px" (click)="navigateHome()" />
+      <!-- <span>Budget-Bites</span> -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
@@ -40,8 +40,10 @@
       <button class="tune-1" mat-icon-button><mat-icon >tune</mat-icon></button> 
       <button class="not-1" mat-icon-button><mat-icon >notifications</mat-icon></button>
     </form> -->
-    <button class="cart" mat-icon-button (click)="navigateToCart()"> <mat-icon>shopping_cart</mat-icon> </button>
-    <button class="not-1" mat-icon-button><mat-icon >notifications</mat-icon></button>
+    <button class="cart" mat-icon-button (click)="navigateToCart()"> <mat-icon class="icon-theme">shopping_cart</mat-icon> </button>
+    <button class="not-1" mat-icon-button>
+      <mat-icon class="icon-theme" matBadge="4" matBadgeSize="medium" matBadgeOverlap="true" matBadgeColor="warn">notifications</mat-icon>
+    </button>
     <span> | </span>
     <button
         mat-icon-button

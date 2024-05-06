@@ -4,16 +4,9 @@
       <div class="dish-details">
         <div class="dish-name" [ngStyle]="calculateFontSize(dishName)">{{dishName}}</div>
 
-        <div class="dish-price">Price: ${{dishPrice}}</div>
+        <div class="dish-price">Price: {{dishPrice}}</div>
       </div>
-      <div class="serves-input">
-        <div class="row">
-          <button (click)="decrementServes()">-</button>
-          <div class="serves-input-box">{{serves}}</div>
-          <button (click)="incrementServes()">+</button>
-        </div>
-        <div class="row">Serves</div>
-      </div>
+      
     </div>
   </div>
   <div class="dish-image">

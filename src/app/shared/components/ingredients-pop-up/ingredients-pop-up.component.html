@@ -34,12 +34,14 @@
               <tr>
                 <th>Ingredients</th>
                 <th>Quantity</th>
+                <th>Price</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="data-row" *ngFor="let ing of dishIngredients.ingredients">
-                <td>{{ing.ingredient}}</td>
-                <td>{{ing.quantity}}</td>
+              <tr class="data-row" *ngFor="let ing of dishIngredients | keyvalue" >
+                <td>{{ing.key}}</td>
+                <td>{{ing?.value?.quantity}}</td>
+                <td>{{ing?.value?.price}}</td>
               </tr>
             </tbody>
           </table>

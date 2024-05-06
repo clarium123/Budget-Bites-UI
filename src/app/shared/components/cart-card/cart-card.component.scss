@@ -1,0 +1,59 @@
+@import '../../../../assets/themes/theme-variables.scss';
+
+.card {
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+    box-shadow:  0px 4px 8px grey;
+  }
+  
+  .upper-row {
+    height: 60%;
+  }
+  
+  .image-container {
+    padding: 8px;
+    height: 50px;
+    width:50px;
+  }
+  .item-image{
+    height: 160px;
+    width: 180px;
+    border-radius: 12px;
+  }
+  
+  .item-name {
+    font-weight: bold;
+    font-size: 16px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 10px;
+  }
+  
+  .item-quantity {
+    font-size: 75%; 
+    padding-left: 10px;
+  }
+  
+  .item-price {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+  }
+  
+  .add-to-cart-button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    padding: 8px;
+  }
+  .add-to-cart-button{
+    border: none;
+    color: white;
+    background-color: $clr-mainly-green;
+    border-radius: 12px;
+  }

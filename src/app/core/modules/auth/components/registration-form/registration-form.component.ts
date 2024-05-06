@@ -50,17 +50,17 @@ export class RegistrationFormComponent implements OnInit {
     this.personalDetailsFormGroup = this.formBuilder.group({ 
       username: ['', Validators.required], //, Validators.required
       middleName:[''],
-      firstName: ['', Validators.required], 
-      lastName: ['', Validators.required] ,
+      firstname: ['', Validators.required], 
+      lastname: ['', Validators.required] ,
       password: [''], //, Validators.required
       confirmPassword: ['', Validators.required]
 
     }, { validators: this.passwordMatchValidator}); 
 
     this.contactDetailsFormGroup = this.formBuilder.group({ 
-      email: ['', [Validators.required, Validators.email]], //, [Validators.required, Validators.email]  
-      contactNumber: ['', Validators.required], 
-      addressLineOne:['', Validators.required],
+      emailId: ['', [Validators.required, Validators.email]], //, [Validators.required, Validators.email]  
+      phone: ['', Validators.required], 
+      address:['', Validators.required],
       addressLineTwo:['', Validators.required],
       city: ['', Validators.required], 
       state: ['', Validators.required],
@@ -69,10 +69,10 @@ export class RegistrationFormComponent implements OnInit {
     }); 
 
       this.dietaryPreferenceFormGroup = this.formBuilder.group({ 
-      familyMembers: ['',[Validators.required, this.nonNegativeValidator] ], //, Validators.required
-      dietaryPreference: [''], //no
+      familyMember: ['',[Validators.required, this.nonNegativeValidator] ], //, Validators.required
+      foodPrefered: [''], //no
       foodAllergies: [''], //no
-      cusine:[''],
+      preferedCusine:[''],
       termsAndConditions: [false, Validators.requiredTrue] 
     }); 
 
@@ -137,20 +137,21 @@ export class RegistrationFormComponent implements OnInit {
   
         onSubmit(): void { 
           if (this.dietaryPreferenceFormGroup.valid) { 
-            this.router.navigate(['/user/login-form']); 
-            // const formData: RegistrationDetails = { 
-            //   ...this.personalDetailsFormGroup.value, 
-            //   ...this.contactDetailsFormGroup.value, 
-            //   ...this.dietaryPreferenceFormGroup.value }; 
-            // this.httpService.post(ApiConstant.loginAuth, formData).subscribe(
-            //   { next: (response: RegistrationDetails) => { 
-            //      this.router.navigate(['/user/login-form']); 
+           // this.router.navigate(['/user/login-form']); 
+            const formData: RegistrationDetails = { 
+              ...this.personalDetailsFormGroup.value, 
+              ...this.contactDetailsFormGroup.value, 
+              ...this.dietaryPreferenceFormGroup.value }; 
+              
+            this.httpService.post(ApiConstant.registerApi, formData).subscribe(
+              { next: (response: RegistrationDetails) => { 
+                 this.router.navigate(['/user/login-form']); 
                 
-            //   }, error: (error) => 
-            //     { console.error('Error occurred while making API call:', error); 
-            //     this.snackBar.open('An error occurred. Please try again later.', 'Close', { duration: 3000 }); 
-            //   } 
-            // }); 
+              }, error: (error) => 
+                {
+                this.snackBar.open('An error occurred. Please try again later.', 'Close', { duration: 3000 }); 
+              } 
+            }); 
           } 
         } 
   } 

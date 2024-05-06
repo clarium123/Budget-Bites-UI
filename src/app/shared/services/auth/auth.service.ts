@@ -16,13 +16,16 @@ export class AuthService {
     localStorage.setItem("access_token",token);
   }
 
-  logIn(userDetail: UserDetail, token: string): void{
+  logIn(userDetail: UserDetail, token?: string): void{
     localStorage.setItem('userDetail', JSON.stringify(userDetail));
-    this.setJwtToken(token);
+    if(token){
+      this.setJwtToken(token);
+    }
+   
   }
 
   logOut(): void{
     localStorage.clear();
-    this.router.navigate(['/login']);  
+    this.router.navigate(['/user/login-form']);  
   }
 }

@@ -10,19 +10,16 @@ export class AddDishCardComponent implements OnInit {
   
     @Input() dishName:string='dish name';
     @Input() dishImageUrl:string="https://melissasfoodfreedom.com/wp-content/uploads/2023/04/Butter-Chicken-500x500-1.webp";
-    @Input() dishPrice:number=0;
+    @Input() dishPrice:string='';
     @Output() addButtonClicked: EventEmitter<void> = new EventEmitter<void>();
-     @Output() dishServes =new EventEmitter<number>();
+    
    
   addbtton(){
     this.addButtonClicked.emit();
   }
    fontSize='16px';
-    addData(){
-     console.log('method called');
-    }
+  
     numberOutput= new FormControl();
-    serves=0;
   constructor() {
     
     //this.dishServes.emit(this.serves);
@@ -44,12 +41,5 @@ export class AddDishCardComponent implements OnInit {
 
   ngOnInit() {
   }
-  incrementServes(){
-    this.serves=this.serves+1;
-    console.log( this.serves);
-  }
-  decrementServes(){
-    this.serves=this.serves-1;
-    console.log( this.serves);
-  }
+ 
 }

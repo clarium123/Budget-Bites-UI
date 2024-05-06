@@ -1,3 +1,5 @@
+@import './assets/themes/theme-variables.scss';
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
@@ -13,3 +15,17 @@ body {
     pointer-events: none;
     opacity: .5;
 }
+
+//Snackbar globel style
+.success-snackbar {
+    background: $clr-green;
+    color: $clr-white;
+  }
+  .warning-snackbar{
+    background: $clr-warn;
+    color: $clr-white;
+  }
+  .info-snackbar{
+    background: $clr-light-blue;
+    color: $clr-white;
+  }

@@ -17,6 +17,7 @@ import { AddDishPopUpComponent } from '../add-dish-pop-up/add-dish-pop-up.compon
 export class MealWeekCardComponent {
   @Input() dateHeading: string = "";
   @Input() daySubHeading: string = "";
+  @Input() defaultServesCount: number =  1;
   @Input() dateInFullFormat!: Date;
   @Input() mealDetail: MealDetail = {
     breakFast: [],
@@ -26,36 +27,10 @@ export class MealWeekCardComponent {
   }
   @Output() addMoreDishEvent = new EventEmitter<NewDish>();
   @Output() removeDishEvent = new EventEmitter<NewDish>();
-  done = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+
 constructor(public dialog: MatDialog){}
 
-  // mealList = ['Briyani', 'Tandoori Chicken'];
-  // detail: MealDetail = {
-  //   breakFast: [
-  //   ],
-  //   lunch: [
-  //     {
-  //       dishName: "Briyani",
-  //       imageUrl: "https://www.licious.in/blog/wp-content/uploads/2022/06/chicken-hyderabadi-biryani-01-750x750.jpg",
-  //       isFavorite: true,
-  //       shortDiscription: "Serves 5",
-  //       cuisineType: ""
-  //     }
-  //   ],
-  //   snacks: [
-  //   ],
-  //   dinner: [
-  //     {
-  //       dishName: "Tandoori Chicken",
-  //       imageUrl: "https://melissasfoodfreedom.com/wp-content/uploads/2023/04/Butter-Chicken-500x500-1.webp",
-  //       isFavorite: false,
-  //       shortDiscription: "Serves 4",
-  //       cuisineType: ""
-  //     }
-  //   ]
-  // }
-
-  dishAction(mealType: string, actionType: string) {
+  dishAction(mealType: string, actionType: string, dishDet?: DishDetail) {
     const dish: DishDetail = {
       dishName: "Briyani",
       // dishName: "Tandoori Chicken",
@@ -70,14 +45,17 @@ constructor(public dialog: MatDialog){}
         data: {mealType},
       });
       dish.afterClosed().subscribe((result:DishDetail) => {
-        console.log('result:'+ (result));
         const dishDetails: DishDetail = {
+          serves:result.serves,
           dishName: result.dishName,
           imageUrl: result.imageUrl,
           isFavorite: result.isFavorite,
           shortDiscription: result.shortDiscription,
-          cuisineType: result.cuisineType
+          cuisineType: result.cuisineType,
+          cost: result.cost
         }
+        console.log(dishDetails);
+        
         const newDish: NewDish = {
           mealType: mealType,
           dishDetail: dishDetails,
@@ -88,19 +66,20 @@ constructor(public dialog: MatDialog){}
       });
       
     }
-    else if(actionType === "delete") {
+    else if(actionType === "delete" && dishDet) {
+
       const deleteDish: NewDish = {
         mealType: mealType,
-        dishDetail: dish,
+        dishDetail: dishDet,
         dateToInsert: this.dateInFullFormat
       }
       this.removeDishEvent.emit(deleteDish);
     }
   }
 
-  openPopup(dishName: string){
+  openPopup(dishName: string,serves:number){
     const dish = this.dialog.open(IngredientsPopUpComponent, {
-      data: {title: dishName,},
+      data: {title: dishName,person:serves},
     });
   }
 

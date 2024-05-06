@@ -11,19 +11,20 @@ import { Observable, finalize, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment as env } from '@budget-bites/env';
 import { AuthService } from '../auth/auth.service';
+import { CommonService } from '../common/common.service';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
-  constructor(private route: Router, private authService: AuthService){}
+  constructor(private route: Router, private authService: AuthService, private commonService: CommonService){}
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const currentRoute = this.route.url;
-    if(this.authService.getJwtToken())
-      {
-        request = request.clone({ setHeaders : {Authorization: `Bearer ${this.authService.getJwtToken()}`, 'X-Time-Zone':Intl.DateTimeFormat().resolvedOptions().timeZone}})
-      }
+    // if(this.authService.getJwtToken())
+    //   {
+    //     request = request.clone({ setHeaders : {Authorization: `Bearer ${this.authService.getJwtToken()}`, 'X-Time-Zone':Intl.DateTimeFormat().resolvedOptions().timeZone}})
+    //   }
     // Extract the component name from the route (if needed)
     // const componentName = this.extractComponentName(currentRoute);
     // const tracer = this.telemetryService.getTracer();
@@ -82,7 +83,12 @@ export class HttpInterceptorService implements HttpInterceptor {
     if(error.status === 401 || error.status === 406){
       this.authService.logOut();
     }
-    // this.commonService.warningSnackBar(errorMessage);
+    if(error?.error?.errorMessage){
+      this.commonService.warningSnackBar(error?.error?.errorMessage);
+    }
+    else{
+      this.commonService.infoSnackBar("Internal Server Error");
+    }
     return throwError(error);
   }
 
